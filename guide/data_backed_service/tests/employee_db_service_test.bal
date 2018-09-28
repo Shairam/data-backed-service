@@ -72,54 +72,54 @@ function testRetrieveByIdResource() {
         "Name did not store in the database");
 }
 
-@test:Config {
-    dependsOn: ["testAddEmployeeResource"]
-}
-function testUpdateEmployeeResource() {
-    // Initialize the empty http request and response
-    http:Request req;
-    http:Response resp;
-    json expectedJson;
-
-    // Testing update employee resource
-    // Prepare sample employee and set the json payload
-    json requestJson = { "name": "'Alice_Updated'", "age": 35, "ssn": 123456789,
-        "employeeId": TEST_EMPLOYEE_ID };
-    req.setJsonPayload(requestJson);
-    // Send the request to service and get the response
-    resp = check httpEndpoint->put("/employee/", req);
-    // Test the responses from the service with the updated test data
-    test:assertEquals(resp.statusCode, 200, msg =
-        "Add new employee resource did not reespond with 200 OK signal");
-
-    var receivedPayload3 = check resp.getJsonPayload();
-    expectedJson = { "Status": "Data Updated Successfully" };
-    test:assertEquals(receivedPayload3, expectedJson, msg =
-        "Name did not updated in the database");
-}
-
-@test:Config {
-    dependsOn: ["testUpdateEmployeeResource", "testRetrieveByIdResource"]
-}
-function testDeleteEmployeeResource() {
-    // Initialize the empty http request and response
-    http:Request req;
-    http:Response resp;
-    json expectedJson;
-
-    // Testing delete employee resource
-    // Send the request to service and get the response
-    string url = "/employee/" + TEST_EMPLOYEE_ID;
-    resp = check httpEndpoint->delete(url, req);
-    // Test whether the delete operation succeed
-    test:assertEquals(resp.statusCode, 200, msg =
-        "Delete employee resource did not reespond with 200 OK signal");
-
-    var receivedPayload3 = check resp.getJsonPayload();
-    expectedJson = { "Status": "Data Deleted Successfully" };
-    test:assertEquals(receivedPayload3, expectedJson, msg = "Delete data resource failed")
-    ;
-
-}
-
-
+//@test:Config {
+//    dependsOn: ["testAddEmployeeResource"]
+//}
+//function testUpdateEmployeeResource() {
+//    // Initialize the empty http request and response
+//    http:Request req;
+//    http:Response resp;
+//    json expectedJson;
+//
+//    // Testing update employee resource
+//    // Prepare sample employee and set the json payload
+//    json requestJson = { "name": "'Alice_Updated'", "age": 35, "ssn": 123456789,
+//        "employeeId": TEST_EMPLOYEE_ID };
+//    req.setJsonPayload(requestJson);
+//    // Send the request to service and get the response
+//    resp = check httpEndpoint->put("/employee/", req);
+//    // Test the responses from the service with the updated test data
+//    test:assertEquals(resp.statusCode, 200, msg =
+//        "Add new employee resource did not reespond with 200 OK signal");
+//
+//    var receivedPayload3 = check resp.getJsonPayload();
+//    expectedJson = { "Status": "Data Updated Successfully" };
+//    test:assertEquals(receivedPayload3, expectedJson, msg =
+//        "Name did not updated in the database");
+//}
+//
+//@test:Config {
+//    dependsOn: ["testUpdateEmployeeResource", "testRetrieveByIdResource"]
+//}
+//function testDeleteEmployeeResource() {
+//    // Initialize the empty http request and response
+//    http:Request req;
+//    http:Response resp;
+//    json expectedJson;
+//
+//    // Testing delete employee resource
+//    // Send the request to service and get the response
+//    string url = "/employee/" + TEST_EMPLOYEE_ID;
+//    resp = check httpEndpoint->delete(url, req);
+//    // Test whether the delete operation succeed
+//    test:assertEquals(resp.statusCode, 200, msg =
+//        "Delete employee resource did not reespond with 200 OK signal");
+//
+//    var receivedPayload3 = check resp.getJsonPayload();
+//    expectedJson = { "Status": "Data Deleted Successfully" };
+//    test:assertEquals(receivedPayload3, expectedJson, msg = "Delete data resource failed")
+//    ;
+//
+//}
+//
+//
