@@ -52,6 +52,29 @@ function testAddEmployeeResource() {
 @test:Config {
     dependsOn: ["testAddEmployeeResource"]
 }
+function testRetrieveByIdResource() {
+    // Initialize the empty http request and response
+    http:Request req;
+    http:Response resp;
+    json expectedJson;
+    // Testing retrieve by employee id resource
+    // Prepare request with query parameter
+    string url = "/employee/" + TEST_EMPLOYEE_ID;
+    // Send the request to service and get the response
+    resp = check httpEndpoint->get(url);
+    // Test the responses from the service with the original test data
+    test:assertEquals(resp.statusCode, 200, msg =
+        "Retreive employee resource did not reespond with 200 OK signal");
+    var receivedPayload2 = check resp.getJsonPayload();
+    expectedJson = [{ "EmployeeID": 879796979, "Name": "Alice", "Age": 30, "SSN":
+    123456789 }];
+    test:assertEquals(receivedPayload2[0], expectedJson[0], msg =
+        "Name did not store in the database");
+}
+
+@test:Config {
+    dependsOn: ["testAddEmployeeResource"]
+}
 function testUpdateEmployeeResource() {
     // Initialize the empty http request and response
     http:Request req;
@@ -99,25 +122,4 @@ function testDeleteEmployeeResource() {
 
 }
 
-@test:Config {
-    dependsOn: ["testAddEmployeeResource"]
-}
-function testRetrieveByIdResource() {
-    // Initialize the empty http request and response
-    http:Request req;
-    http:Response resp;
-    json expectedJson;
-    // Testing retrieve by employee id resource
-    // Prepare request with query parameter
-    string url = "/employee/" + TEST_EMPLOYEE_ID;
-    // Send the request to service and get the response
-    resp = check httpEndpoint->get(url);
-    // Test the responses from the service with the original test data
-    test:assertEquals(resp.statusCode, 200, msg =
-        "Retreive employee resource did not reespond with 200 OK signal");
-    var receivedPayload2 = check resp.getJsonPayload();
-    expectedJson = [{ "EmployeeID": 879796979, "Name": "Alice", "Age": 30, "SSN":
-    123456789 }];
-    test:assertEquals(receivedPayload2[0], expectedJson[0], msg =
-        "Name did not store in the database");
-}
+
