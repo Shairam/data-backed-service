@@ -16,7 +16,7 @@ services:
   - mysql
 
 before_script:
-- mysqldump -u root --password="" --default_character_set utf8 < ./resources/initializeDataBase.sql
+- mysql -u root --password="" --default_character_set utf8 < ./resources/initializeDataBase.sql
 
 script:
 - BALLERINA_VERSION="${VERSION:-0.980.2-SNAPSHOT}"
