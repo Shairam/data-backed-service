@@ -16,6 +16,7 @@
 
 import ballerina/http;
 import ballerina/test;
+import ballerina/io;
 
 int TEST_EMPLOYEE_ID = 879796979;
 
@@ -68,6 +69,8 @@ function testRetrieveByIdResource() {
     var receivedPayload2 = check resp.getJsonPayload();
     expectedJson = [{ "EmployeeID": 879796979, "Name": "Alice", "Age": 30, "SSN":
     123456789 }];
+    io:println(expectedJson[0]);
+    io:println(receivedPayload2[0]);
     test:assertEquals(receivedPayload2[0], expectedJson[0], msg =
         "Name did not store in the database");
 }
