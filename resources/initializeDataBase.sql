@@ -11,3 +11,6 @@ USE EMPLOYEE_RECORDS;
 
 -- create EMPLOYEES table in the database
 CREATE TABLE IF NOT EXISTS EMPLOYEES (EmployeeID INT, Name VARCHAR(50), Age INT, SSN INT, PRIMARY KEY (EmployeeID))
+
+INSERT INTO `student` (`Name`, `Age`, `SSN`, `mobNo`, `address`) VALUES
+('Alice',30,123456789);

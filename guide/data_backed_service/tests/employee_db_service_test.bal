@@ -43,7 +43,7 @@ function testRetrieveByIdResource() {
     var receivedPayload2 = check resp.getJsonPayload();
     expectedJson = [{ "EmployeeID": 879796979, "Name": "Alice", "Age": 30, "SSN":
     123456789 }];
-    test:assertEquals(receivedPayload2, expectedJson, msg =
+    test:assertEquals(receivedPayload2[0], expectedJson[0], msg =
         "Name did not store in the database");
 }
 
