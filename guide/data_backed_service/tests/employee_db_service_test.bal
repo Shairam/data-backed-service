@@ -25,34 +25,32 @@ endpoint http:Client httpEndpoint {
     url: "http://localhost:9090/records"
 };
 
+//@test:Config
+//function testAddEmployeeResource() {
+//
+//    // Initialize the empty http request and response
+//    http:Request req;
+//    http:Response resp;
+//    json expectedJson;
+//
+//    // Testing add new employee resource
+//    // Prepare sample employee and set the json payload
+//    json requestJson = { "name": "Alice", "age": 30, "ssn": 123456789, "employeeId":
+//    TEST_EMPLOYEE_ID };
+//    req.setJsonPayload(requestJson);
+//    // Send the request to service and get the response
+//    resp = check httpEndpoint->post("/employee", req);
+//    // Test the response status code is correct
+//    test:assertEquals(resp.statusCode, 200, msg =
+//        "Add new employee resource did not reespond with 200 OK signal");
+//    // Test the responses from the service with the original test data
+//    var receivedPayload1 = check resp.getJsonPayload();
+//    expectedJson = { "Status": "Data Inserted Successfully" };
+//    test:assertEquals(receivedPayload1, expectedJson, msg =
+//        "Name did not store in the database");
+//}
+
 @test:Config
-function testAddEmployeeResource() {
-
-    // Initialize the empty http request and response
-    http:Request req;
-    http:Response resp;
-    json expectedJson;
-
-    // Testing add new employee resource
-    // Prepare sample employee and set the json payload
-    json requestJson = { "name": "Alice", "age": 30, "ssn": 123456789, "employeeId":
-    TEST_EMPLOYEE_ID };
-    req.setJsonPayload(requestJson);
-    // Send the request to service and get the response
-    resp = check httpEndpoint->post("/employee", req);
-    // Test the response status code is correct
-    test:assertEquals(resp.statusCode, 200, msg =
-        "Add new employee resource did not reespond with 200 OK signal");
-    // Test the responses from the service with the original test data
-    var receivedPayload1 = check resp.getJsonPayload();
-    expectedJson = { "Status": "Data Inserted Successfully" };
-    test:assertEquals(receivedPayload1, expectedJson, msg =
-        "Name did not store in the database");
-}
-
-@test:Config {
-    dependsOn: ["testAddEmployeeResource"]
-}
 function testRetrieveByIdResource() {
     // Initialize the empty http request and response
     http:Request req;
