@@ -65,6 +65,7 @@ function testRetrieveByIdResource() {
     test:assertEquals(resp.statusCode, 200, msg =
         "Retreive employee resource did not reespond with 200 OK signal");
     var receivedPayload2 = check resp.getJsonPayload();
+    io:println(receivedPayload2);
     expectedJson = [{ "EmployeeID": 879796979, "Name": "Alice", "Age": 30, "SSN":
     123456789 }];
     io:println(expectedJson[0]);
