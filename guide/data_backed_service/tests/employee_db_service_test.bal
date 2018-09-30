@@ -83,7 +83,7 @@ function testRetrieveByIdResource() {
     // Initialize the empty http request and response
     http:Request req;
     http:Response response = check httpEndpoint->get("/employee/879796979");
-    var gPayload = check response.getJsonPayLoad();
+    var gPayload = check response.getJsonPayload();
     io:println(gPayload);
     expectedJson = [{ "EmployeeID": 879796979, "Name": "Alice", "Age": 30, "SSN":
     123456789 }];

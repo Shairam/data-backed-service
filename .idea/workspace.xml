@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="employee_db_service_test.bal" pinned="false" current-in-tab="false">
+      <file leaf-file-name="employee_db_service_test.bal" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/guide/data_backed_service/tests/employee_db_service_test.bal">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="77" column="14" lean-forward="true" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+            <state relative-caret-position="465">
+              <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -31,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="initializeDataBase.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="initializeDataBase.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/initializeDataBase.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -295,17 +295,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/guide/data_backed_service/tests/employee_db_service_test.bal">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="77" column="14" lean-forward="true" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/initializeDataBase.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guide/data_backed_service/tests/employee_db_service_test.bal">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
         </state>
       </provider>
     </entry>
